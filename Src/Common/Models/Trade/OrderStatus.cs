@@ -20,5 +20,4 @@
 
         public override readonly string ToString() => Status;
     }
-
 }

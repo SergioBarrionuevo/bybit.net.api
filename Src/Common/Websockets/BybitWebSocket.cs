@@ -181,8 +181,10 @@ namespace bybit.net.api.Websockets
         /// </summary>
         /// <param name="path">The API path to be checked.</param>
         /// <returns>True if authentication is required, otherwise False.</returns>
-        private bool RequiresAuthentication(string path) => BybitConstants.WEBSOCKET_PRIVATE_MAINNET.Equals(path) ||
+        private bool RequiresAuthentication(string path) => 
+                    BybitConstants.WEBSOCKET_PRIVATE_MAINNET.Equals(path) ||
                     BybitConstants.WEBSOCKET_PRIVATE_TESTNET.Equals(path) ||
+                    BybitConstants.WEBSOCKET_PRIVATE_MAINNET_DEMO.Equals(path) ||
                     BybitConstants.V3_CONTRACT_PRIVATE.Equals(path) ||
                     BybitConstants.V3_UNIFIED_PRIVATE.Equals(path) ||
                     BybitConstants.V3_SPOT_PRIVATE.Equals(path);
