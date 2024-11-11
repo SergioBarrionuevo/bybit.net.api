@@ -32,6 +32,11 @@
         #endregion
     }
 
+    public static class MessageConstants
+    {
+        public const string Ok = "OK";
+    }
+
     public enum BybitNetType
     {
         MainNet,

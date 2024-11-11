@@ -6,11 +6,14 @@ using System.Net.WebSockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using NLog.Fluent;
+using System.Reflection.Metadata;
 
 namespace bybit.net.api.Websockets
 {
     public class BybitWebSocket : IDisposable
     {
+        private static readonly NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
         private readonly IBybitWebSocketHandler handler;
         private readonly List<Func<string, Task>> onMessageReceivedFunctions;
         private readonly List<CancellationTokenRegistration> onMessageReceivedCancellationTokenRegistrations;
@@ -237,7 +240,7 @@ namespace bybit.net.api.Websockets
                 if (this.handler.State == WebSocketState.Open)
                 {
                     await SendAsync("{\"op\":\"ping\"}", CancellationToken.None);
-                    await Console.Out.WriteLineAsync("ping sent");
+                    Log.Debug("Ping SENT");
                 }
             }
         }
@@ -264,6 +267,7 @@ namespace bybit.net.api.Websockets
                     }
 
                     string content = Encoding.UTF8.GetString(buffer.ToArray(), buffer.Offset, buffer.Count);
+                    Log.Debug($"RECEIVED: {content}");
                     this.onMessageReceivedFunctions.ForEach(omrf => omrf(content));
                 }
             }
