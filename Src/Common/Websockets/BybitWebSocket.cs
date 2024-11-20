@@ -266,7 +266,7 @@ namespace bybit.net.api.Websockets
                         break;
                     }
 
-                    string content = Encoding.UTF8.GetString(buffer.ToArray(), buffer.Offset, buffer.Count);
+                    string content = Encoding.UTF8.GetString(buffer.ToArray(), buffer.Offset, buffer.Count).Trim('\0');
                     Log.Debug($"RECEIVED: {content}");
                     this.onMessageReceivedFunctions.ForEach(omrf => omrf(content));
                 }
