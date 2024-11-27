@@ -76,10 +76,10 @@ namespace bybit.net.api.Models.Trade.Response
         public string IsLeverage { get; set; }
 
         [JsonPropertyName("price")]
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         [JsonPropertyName("qty")]
-        public string Qty { get; set; }
+        public double Qty { get; set; }
 
         [JsonPropertyName("avgPrice")]
         public string AvgPrice { get; set; }
