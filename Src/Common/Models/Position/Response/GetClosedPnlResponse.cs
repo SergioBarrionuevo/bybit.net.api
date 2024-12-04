@@ -3,7 +3,7 @@
 namespace bybit.net.api.Models.Position.Response
 {
 
-    public class PositionDataResponse
+    public class ProfitAndLossResponse
     {
         [JsonPropertyName("nextPageCursor")]
         public string NextPageCursor { get; set; }
@@ -12,10 +12,10 @@ namespace bybit.net.api.Models.Position.Response
         public string Category { get; set; }
 
         [JsonPropertyName("list")]
-        public List<PositionDetail> List { get; set; }
+        public List<ProfitAndLossDetail> List { get; set; }
     }
 
-    public class PositionDetail
+    public class ProfitAndLossDetail
     {
         [JsonPropertyName("symbol")]
         public string Symbol { get; set; }
