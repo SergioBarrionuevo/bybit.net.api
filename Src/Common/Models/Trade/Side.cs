@@ -11,6 +11,6 @@
         public static Side SELL { get => new("Sell"); }
         public string Value { get; private set; }
         public static implicit operator string(Side enm) => enm.Value;
-        public override readonly string ToString() => Value.ToString();
+        public readonly override string ToString() => Value.ToString();
     }
 }

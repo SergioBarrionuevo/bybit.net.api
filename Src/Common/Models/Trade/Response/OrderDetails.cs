@@ -173,6 +173,11 @@ namespace bybit.net.api.Models.Trade.Response
 
         [JsonPropertyName("feeCurrency")]
         public string FeeCurrency { get; set; }
+
+        public override string ToString()
+        {
+            return $"OrderData: Category [{Category}] Symbol [{Symbol}] OrderId [{OrderId}] OrderLinkId [{OrderLinkId}] BlockTradeId [{BlockTradeId}] Side [{Side}] PositionIdx [{PositionIdx}] OrderStatus [{OrderStatus}] CancelType [{CancelType}] RejectReason [{RejectReason}] TimeInForce [{TimeInForce}] IsLeverage [{IsLeverage}] Price [{Price}] Qty [{Qty}] AvgPrice [{AvgPrice}] LeavesQty [{LeavesQty}] LeavesValue [{LeavesValue}] CumExecQty [{CumExecQty}] CumExecValue [{CumExecValue}] CumExecFee [{CumExecFee}] OrderType [{OrderType}] StopOrderType [{StopOrderType}] OrderIv [{OrderIv}] TriggerPrice [{TriggerPrice}] TakeProfit [{TakeProfit}] StopLoss [{StopLoss}] TriggerBy [{TriggerBy}] TpTriggerBy [{TpTriggerBy}] SlTriggerBy [{SlTriggerBy}] TriggerDirection [{TriggerDirection}] PlaceType [{PlaceType}] LastPriceOnCreated [{LastPriceOnCreated}] CloseOnTrigger [{CloseOnTrigger}] ReduceOnly [{ReduceOnly}] SmpGroup [{SmpGroup}] SmpType [{SmpType}] SmpOrderId [{SmpOrderId}] SlLimitPrice [{SlLimitPrice}] TpLimitPrice [{TpLimitPrice}] TpslMode [{TpslMode}] CreateType [{CreateType}] MarketUnit [{MarketUnit}] CreatedTime [{CreatedTime}] UpdatedTime [{UpdatedTime}] FeeCurrency [{FeeCurrency}]";
+        }
     }
 
 }
