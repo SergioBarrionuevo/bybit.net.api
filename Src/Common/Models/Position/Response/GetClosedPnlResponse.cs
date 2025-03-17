@@ -67,6 +67,11 @@ namespace bybit.net.api.Models.Position.Response
 
         [JsonPropertyName("cumExitValue")]
         public string CumExitValue { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Symbol)}: {Symbol}, {nameof(OrderType)}: {OrderType}, {nameof(Leverage)}: {Leverage}, {nameof(UpdatedTime)}: {UpdatedTime}, {nameof(Side)}: {Side}, {nameof(OrderId)}: {OrderId}, {nameof(ClosedPnl)}: {ClosedPnl}, {nameof(AvgEntryPrice)}: {AvgEntryPrice}, {nameof(Qty)}: {Qty}, {nameof(CumEntryValue)}: {CumEntryValue}, {nameof(CreatedTime)}: {CreatedTime}, {nameof(OrderPrice)}: {OrderPrice}, {nameof(ClosedSize)}: {ClosedSize}, {nameof(AvgExitPrice)}: {AvgExitPrice}, {nameof(ExecType)}: {ExecType}, {nameof(FillCount)}: {FillCount}, {nameof(CumExitValue)}: {CumExitValue}";
+        }
     }
 
 }
