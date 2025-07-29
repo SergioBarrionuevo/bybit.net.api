@@ -11,6 +11,6 @@ namespace bybit.net.api.Models.Market
         public String? Symbol { get; set; }
 
         [JsonProperty("list")]
-        public List<List<string>>? MarketKlineEntries { get; set; }
+        public List<List<string>>? MarketKlineEntries { get; set; } = new();
     }
 }
