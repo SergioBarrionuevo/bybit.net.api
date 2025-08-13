@@ -24,4 +24,42 @@
         public static implicit operator string(MarketInterval interval) => interval.Value;
     }
 
+    public static class MarketIntervalConverter
+    {
+        public static MarketInterval Convert(float input)
+        {
+            switch (input)
+            {
+                case 1f:
+                    return MarketInterval.OneMinute;
+                case 3f:
+                    return MarketInterval.ThreeMinutes;
+                case 5f:
+                    return MarketInterval.FiveMinutes;
+                case 15f:
+                    return MarketInterval.FifteenMinutes;
+                case 30f:
+                    return MarketInterval.ThirtyMinutes;
+                case 60f:
+                    return MarketInterval.OneHour;
+                case 120f:
+                    return MarketInterval.TwoHours;
+                case 240f:
+                    return MarketInterval.FourHours;
+                case 360f:
+                    return MarketInterval.SixHours;
+                case 720f:
+                    return MarketInterval.TwelveHours;
+                case 1440f:
+                    return MarketInterval.Daily;
+                case 10080f:
+                    return MarketInterval.Weekly;
+                case 302400f:
+                    return MarketInterval.Monthly;
+                default:
+                    return new MarketInterval();
+            }
+        }
+
+    }
 }

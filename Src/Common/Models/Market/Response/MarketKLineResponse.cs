@@ -13,14 +13,16 @@ namespace bybit.net.api.Models.Market.Response
         [JsonPropertyName("list")]
         public List<List<string>> KlineEntriesRaw { get; set; } = new();
 
-        public List<CandleParser> KlineEntries { get; set; } = new();
-        public void ParseKlineEntries()
+        private readonly Lazy<List<CandleData>> klineEntries;
+        public List<CandleData> KlineEntries => klineEntries.Value;
+
+        public MarketKLineResponse()
         {
-            KlineEntries = KlineEntriesRaw.Select(CandleParser.FromRaw).ToList();
+            klineEntries = new(() => KlineEntriesRaw.Select(CandleData.FromRaw).ToList());
         }
     }
 
-    public class CandleParser
+    public class CandleData
     {
         public long Timestamp { get; set; }
         public DateTimeOffset Time => DateTimeOffset.FromUnixTimeMilliseconds(Timestamp).ToLocalTime();
@@ -31,9 +33,14 @@ namespace bybit.net.api.Models.Market.Response
         public double Volume { get; set; }
         public double Turnover { get; set; }
 
-        public static CandleParser FromRaw(List<string> raw)
+        public override string ToString()
         {
-            return new CandleParser
+            return $"{Time} low {Low} open {Open} close {Close} high {High} vol {Volume}";
+        }
+
+        public static CandleData FromRaw(List<string> raw)
+        {
+            return new CandleData
             {
                 Timestamp = long.Parse(raw[0]),
                 Open = double.Parse(raw[1]),
