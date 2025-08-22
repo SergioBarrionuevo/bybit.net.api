@@ -54,7 +54,7 @@
                     return MarketInterval.Daily;
                 case 10080f:
                     return MarketInterval.Weekly;
-                case 302400f:
+                case 40320f:
                     return MarketInterval.Monthly;
                 default:
                     return new MarketInterval();
